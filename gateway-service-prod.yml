@@ -2,9 +2,6 @@ server:
   port: 8000
 
 spring:
-  application:
-    name: gateway-service
-
   cloud:
     gateway:
       discovery:
@@ -31,7 +28,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_SERVER}
+      defaultZone: http://discovery-service:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -42,6 +39,14 @@ eureka:
     status-page-url-path: /actuator/info
     instance-id: ${spring.application.name}:${random.value}
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
 
 logging:
   level:
