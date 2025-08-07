@@ -31,7 +31,16 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://discovery-service:8761/eureka
+      defaultZone: ${EUREKA_SERVER}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
+    health-check-url-path: /actuator/health
+    status-page-url-path: /actuator/info
+    instance-id: ${spring.application.name}:${random.value}
 
 logging:
   level:
