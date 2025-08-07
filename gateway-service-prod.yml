@@ -1,3 +1,6 @@
+server:
+  port: 8000
+  
 spring:
   application:
     name: gateway-service
@@ -38,9 +41,6 @@ eureka:
     health-check-url-path: /actuator/health
     status-page-url-path: /actuator/info
     instance-id: ${spring.application.name}:${random.value}
-
-server:
-  port: 8000
 
 management:
   endpoints:
