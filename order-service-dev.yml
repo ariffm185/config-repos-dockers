@@ -1,3 +1,5 @@
+global:
+  message: welcome to dev environment!
 spring:
   datasource:
     url: jdbc:h2:mem:orderdb_dev
